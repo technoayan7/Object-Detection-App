@@ -48,7 +48,7 @@ app.post('/api/detect', upload.single('image'), async (req, res) => {
     }
 });
 
-// Serve frontend
+// Serve frontend URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
