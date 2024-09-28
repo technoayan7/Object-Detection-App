@@ -1,6 +1,7 @@
 
 const themeSwitch = document.getElementById('theme-switch');
 const themeLabel = document.getElementById('theme-label');
+const container = document.querySelector('.container');
 
 // Check local storage for theme preference on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,6 +48,8 @@ function enableDarkTheme() {
 // Existing code for image upload and detection below...
 document.getElementById('upload-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    container.classList.add('blur'); 
+    loader.style.display = 'block';
 
     const fileInput = document.getElementById('image-input');
     if (fileInput.files.length === 0) {
@@ -166,6 +169,11 @@ document.getElementById('upload-form').addEventListener('submit', async (e) => {
     } catch (error) {
         console.error(error);
         resultsDiv.innerHTML = `<p>An error occurred while detecting objects.</p>`;
+    }
+    finally {
+        // Hide the spinner
+        loader.style.display = 'none';
+        container.classList.remove('blur');
     }
 });
 
