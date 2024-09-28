@@ -2,6 +2,8 @@
 const themeSwitch = document.getElementById('theme-switch');
 const themeLabel = document.getElementById('theme-label');
 const container = document.querySelector('.container');
+const loader = document.getElementById('loader');
+
 
 // Check local storage for theme preference on page load
 document.addEventListener('DOMContentLoaded', () => {
